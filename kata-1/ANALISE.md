@@ -31,8 +31,10 @@
 
 4. Se a clínica adicionasse uma 6ª regra amanhã, como seu código lidaria com essa extensão?
 
-    A arquitetura da classe FilaService foi construída isolando a extração do peso no método CalcularUrgenciaEfetiva.
+    O código foi projetado seguindo o Princípio Aberto/Fechado (SOLID), utilizando o padrão de projeto Strategy.
 
-    Se a 6ª regra for simples (ex: gestantes ganham +1 prioridade), basta adicionar uma nova verificação condicional dentro desse método sem quebrar o algoritmo principal de ordenação.
+    Em vez de códigos fixos dentro do serviço, utilizei uma interface IRegraTriagem. O FilaService recebe uma lista dinâmica dessas regras.
 
-    Caso a clínica comece a adicionar dezenas de regras ou regras dinâmicas, o código está preparado para ser refatorado utilizando o padrão Strategy ou Chain of Responsibility. Injetaríamos uma lista de IRegraTriagem no serviço, e cada regra avaliaria o paciente independentemente, garantindo o princípio Aberto/Fechado (OCP) do SOLID.
+    Extensibilidade: Para adicionar uma 6ª regra (ex: prioridade para gestantes), basta criar uma nova classe que implemente a interface e registrá-la no sistema.
+
+    Segurança: Não é necessário alterar o código principal de ordenação para incluir, remover ou modificar regras individuais, o que reduz drasticamente o risco de efeitos colaterais e bugs em regras já existentes.

@@ -100,3 +100,11 @@ Abaixo os 3 principais atributos de qualidade do sistema que estão claramente c
 ### 3. Manutenibilidade (Maintainability)
 * **Por que está comprometido:** Um arquivo com 4.000 linhas de lógica de negócios aliado à inexistência de testes automatizados torna o código ilegível, testável apenas manualmente e perigoso de evoluir.
 * **Métrica de Monitoramento:** Analisador estático de código (ex: SonarQube) com metas incrementais de diminuição de complexidade ciclomática e acompanhamento do **aumento da cobertura de testes (*Test Coverage*)**, visando atingir no mínimo 70% nas lógicas de *core business* novas e refatoradas.
+
+## 🎯 Considerações Finais
+
+Gostaria de agradecer à equipe da **Unimed Caruaru** pela oportunidade e pela excelente estrutura deste teste técnico. Os desafios propostos (Katas) refletem cenários reais e complexos do dia a dia da engenharia de software, e foi extremamente gratificante aplicar minha experiência em Backend, Frontend, Arquitetura e Engenharia de Dados para resolvê-los de ponta a ponta.
+
+Espero que este repositório demonstre não apenas o meu embasamento técnico, mas também o meu compromisso com a entrega de valor, qualidade arquitetural e visão de negócio. 
+
+Estou totalmente à disposição para aprofundarmos qualquer decisão de design de código tomada aqui durante a nossa próxima conversa. Muito obrigado pelo tempo dedicado à avaliação do meu perfil!

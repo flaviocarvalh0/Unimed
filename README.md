@@ -13,25 +13,73 @@ Este repositório contém a resolução dos Katas propostos para a avaliação t
 
 Optei por utilizar o ecossistema **.NET** como fundação do projeto, espelhando a stack principal utilizada no dia a dia da equipe de TI da Unimed Caruaru. 
 
-* **C# / .NET 9:** Escolhido para a resolução dos algoritmos e construção da API. O C# oferece tipagem forte, altíssima performance e recursos modernos (como LINQ e Records) que tornam a implementação de regras de negócio limpa e declarativa.
+* **C# / .NET 9:** Escolhido para a resolução dos algoritmos e construção da API e Pipelines. O C# oferece tipagem forte, altíssima performance e recursos modernos (como LINQ e Records) que tornam a implementação de regras de negócio limpa e declarativa.
 * **xUnit:** Framework padrão de mercado no ecossistema .NET para a garantia de qualidade através de testes unitários automatizados.
 * **SQLite (Kata 2):** Escolhido como banco de dados relacional para o Painel de Tarefas por reduzir a fricção na avaliação. Permite que o avaliador execute o projeto localmente sem a necessidade de configurar instâncias pesadas (como SQL Server/PostgreSQL) ou dependências de containers Docker.
-* **Frontend (Kata 2):** [React + TypeScript ou Angular - *Ajustar conforme o que formos usar*] para construção de uma interface componentizada e tipada, integrando de forma fluida com a API REST.
+* **Frontend (Kata 2):** React com TypeScript e Vite. Escolhido para a construção de uma interface moderna, tipada, componentizada e de altíssima performance no build, integrando de forma fluida com a API REST.
 
 ---
 
 ## 🚀 Instruções para Executar Cada Kata Localmente
 
-**Pré-requisitos:**
+**Pré-requisitos Globais:**
 * [.NET 9.0 SDK](https://dotnet.microsoft.com/download/dotnet/9.0) instalado.
-* Terminal de sua preferência (PowerShell, Bash, etc.).
+* [Node.js](https://nodejs.org/) (versão 18+ recomendada) para o Frontend.
 
 ### Kata 1 - Fila de Triagem (Lógica e Algoritmos)
 O Kata 1 foi desenvolvido como uma *Class Library* focada no Domínio (Regras de Negócio) com cobertura de testes unitários, isolado de frameworks de infraestrutura.
 
-1. Navegue até a pasta da Solution do Kata 1:
+1. Navegue até a pasta da Solution:
    ```bash
    cd "kata-1/src/Fila de Triagem"
+   ```
+2. Execute os testes automatizados para validar as regras:
+   ```bash
+   dotnet test
+   ```
+
+### Kata 2 - Painel de Tarefas (API REST + Frontend)
+Este Kata é fullstack. É necessário rodar o Backend e o Frontend em terminais separados.
+
+**Rodando o Backend (API C#):**
+1. Abra um terminal e navegue até a pasta da API:
+   ```bash
+   cd kata-2/api
+   ```
+2. Execute o projeto (o banco SQLite será criado e populado automaticamente):
+   ```bash
+   dotnet run
+   ```
+   *A API estará disponível (geralmente em `http://localhost:5000` ou `https://localhost:5001`).*
+
+**Rodando o Frontend (React):**
+1. Abra um **novo** terminal e navegue até a pasta web:
+   ```bash
+   cd kata-2/web
+   ```
+2. Instale as dependências e inicie o servidor de desenvolvimento:
+   ```bash
+   npm install
+   npm run dev
+   ```
+   *Acesse o link gerado no terminal (geralmente `http://localhost:5173`) para interagir com o painel.*
+
+### Kata 3 - Sistema Legado em Colapso (Arquitetura)
+Este Kata é focado em análise, diagnóstico e plano de ação técnico (não exige execução de código).
+* O documento de entrega encontra-se na pasta raiz do Kata: `kata-3/PLANO.md`.
+
+### Kata 4 - Pipeline de Relatório (Engenharia de Dados)
+Desenvolvido como um Console Application focado em higienização de CSVs, cruzamento de dados via LINQ e idempotência.
+
+1. Navegue até a pasta do projeto:
+   ```bash
+   cd kata-4/PipelineDados
+   ```
+2. Execute o pipeline:
+   ```bash
+   dotnet run
+   ```
+*O relatório consolidado de indicadores será impresso no terminal, e o arquivo final higienizado será gerado em `dados/consolidado.csv`. A análise e as decisões de tratamento tomadas estão documentadas no arquivo `kata-4/ANALISE.md`.*
 
 ## 💡 Comentários Livres: O que eu faria diferente com mais tempo?
 
@@ -45,5 +93,4 @@ Durante o desenvolvimento, priorizei a entrega de valor, a legibilidade do códi
    * **Paginação e CQRS:** Para garantir a performance da listagem (GET) mesmo quando a base de tarefas crescesse consideravelmente.
    * **Observabilidade Robusta:** Integração com Serilog e OpenTelemetry para rastreabilidade de requisições em ambiente produtivo.
 
-3. **Qualidade Contínua:**
-   Expandiria a pirâmide de testes, adicionando **Testes de Integração** (validando as rotas da API com um banco de dados em memória utilizando o `WebApplicationFactory`) e **Testes End-to-End (E2E)** no frontend (com Cypress ou Playwright).
+ 
