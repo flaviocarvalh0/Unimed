@@ -18,5 +18,19 @@ namespace GerenciadorTarefas.Infrastructure.Data
                 .Property(t => t.DataAlteracao)
                 .IsConcurrencyToken();
         }
+
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            var entradas = ChangeTracker
+                .Entries()
+                .Where(e => e.Entity is Tarefa && (e.State == EntityState.Added || e.State == EntityState.Modified));
+
+            foreach (var entrada in entradas)
+            {
+                ((Tarefa)entrada.Entity).AtualizarDataAlteracao();
+            }
+
+            return base.SaveChangesAsync(cancellationToken);
+        }
     }
 }

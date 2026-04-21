@@ -38,5 +38,10 @@ namespace GerenciadorTarefas.Domain.Entities
             EstaConcluida = concluida;
             DataAlteracao = DateTime.UtcNow;
         }
+
+        public void AtualizarDataAlteracao()
+        {
+            DataAlteracao = DateTime.UtcNow;
+        }
     }
 }

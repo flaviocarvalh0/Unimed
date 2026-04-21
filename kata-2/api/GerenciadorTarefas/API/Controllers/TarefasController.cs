@@ -39,7 +39,6 @@ namespace GerenciadorTarefas.Api.Controllers
             var tarefa = await _repositorio.ObterPorIdAsync(id);
             if (tarefa == null) return NotFound();
 
-            // Validação Manual de Concorrência
             if (tarefa.DataAlteracao != dto.DataAlteracaoOriginal)
             {
                 return Conflict(new
@@ -69,6 +68,14 @@ namespace GerenciadorTarefas.Api.Controllers
         {
             var tarefa = await _repositorio.ObterPorIdAsync(id);
             if (tarefa == null) return NotFound();
+
+            if (tarefa.EstaConcluida)
+            {
+                return BadRequest(new
+                {
+                    mensagem = "Não é permitido excluir uma tarefa que já foi concluída."
+                });
+            }
 
             await _repositorio.RemoverAsync(tarefa);
             return NoContent();
