@@ -93,4 +93,10 @@ Durante o desenvolvimento, priorizei a entrega de valor, a legibilidade do códi
    * **Paginação e CQRS:** Para garantir a performance da listagem (GET) mesmo quando a base de tarefas crescesse consideravelmente.
    * **Observabilidade Robusta:** Integração com Serilog e OpenTelemetry para rastreabilidade de requisições em ambiente produtivo.
 
- 
+ ## 🎯 Considerações Finais
+
+Gostaria de agradecer à equipe da **Unimed Caruaru** pela oportunidade e pela excelente estrutura deste teste técnico. Os desafios propostos (Katas) refletem cenários reais e complexos do dia a dia da engenharia de software, e foi extremamente gratificante aplicar minha experiência em Backend, Frontend, Arquitetura e Engenharia de Dados para resolvê-los de ponta a ponta.
+
+Espero que este repositório demonstre não apenas o meu embasamento técnico, mas também o meu compromisso com a entrega de valor, qualidade arquitetural e visão de negócio. 
+
+Estou totalmente à disposição para aprofundarmos qualquer decisão de design de código tomada aqui durante a nossa próxima conversa. Muito obrigado pelo tempo dedicado à avaliação do meu perfil!
