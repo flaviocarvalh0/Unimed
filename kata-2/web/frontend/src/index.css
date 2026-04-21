@@ -1,0 +1,67 @@
+/* Importando a fonte Inter do Google Fonts (Deixa o sistema com cara de SaaS moderno) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #f3f4f6; /* Fundo da página cinza bem claro */
+  color: #1f2937;            /* Texto cinza escuro para facilitar a leitura */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3rem 1rem;
+}
+
+/* O quadrado principal do nosso App */
+.container {
+  width: 100%;
+  max-width: 800px;
+  background-color: #ffffff;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05), 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+/* Efeitos mágicos para os botões e inputs não ficarem estáticos */
+button {
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+input:focus, select:focus {
+  outline: 2px solid #00995D; /* Foco com a cor da Unimed */
+  outline-offset: -1px;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.3);
+  accent-color: #00995D; /* Checkbox verdinho */
+}
+
+/* Uma estilização suave para o rádio button dos filtros */
+label {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-weight: 500;
+  color: #4b5563;
+  transition: color 0.2s;
+}
+
+label:hover {
+  color: #111827;
+}
